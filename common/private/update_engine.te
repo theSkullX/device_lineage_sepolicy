@@ -11,3 +11,4 @@ domain_trans(update_engine, otapreopt_chroot_exec, backuptool)
 
 # Read OTA zip file at /data/media/.
 allow update_engine media_rw_data_file:file { read open };
+allow update_engine self:capability { dac_override dac_read_search sys_rawio };
