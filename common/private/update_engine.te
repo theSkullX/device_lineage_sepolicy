@@ -16,6 +16,10 @@ domain_trans(update_engine, otapreopt_chroot_exec, backuptool)
 allow update_engine media_rw_data_file:file { read open };
 allow update_engine self:capability { dac_override dac_read_search sys_rawio };
 
+# Allow update engine to read fuse files anywhere
+allow update_engine fuse:dir r_dir_perms;
+allow update_engine fuse:file { read open getattr };
+
 r_dir_file(update_engine, mnt_user_file)
 r_dir_file(update_engine, storage_file)
 
